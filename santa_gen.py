@@ -38,14 +38,14 @@ class SantaClause(object):
     """Will represent the big red man himself."""
 
     def __init__(self, children=None):
+        self.children = children
         self.nice_list = []
         self.naughty_list = []
-        if self.children:
-            for child in children:
-                if child.nice:
-                    self.nice_list.append(child)
-                if child.naughty:
-                    self.naughty_list.append(child)
+        for child in children:
+            if child.nice:
+                self.nice_list.append(child)
+            if child.naughty:
+                self.naughty_list.append(child)
 
     def deliver_presents(self):
         """The day has come."""
