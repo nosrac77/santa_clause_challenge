@@ -5,7 +5,7 @@ from random import randint
 class Node(object):
     """Will represent a child."""
 
-    def __init__(self, address, present_wish, has_mean_dog, provides_cookies, naughty):
+    def __init__(self, address, has_mean_dog, provides_cookies, naughty):
         """Creates an instance of a Node class object."""
         self.nice = True
         self.address = address
@@ -41,11 +41,12 @@ class SantaClause(object):
         self.children = children
         self.nice_list = []
         self.naughty_list = []
-        for child in children:
-            if child.nice:
-                self.nice_list.append(child)
-            if child.naughty:
-                self.naughty_list.append(child)
+        if children:
+            for child in children:
+                if child.nice:
+                    self.nice_list.append(child)
+                if child.naughty:
+                    self.naughty_list.append(child)
 
     def deliver_presents(self):
         """The day has come."""
